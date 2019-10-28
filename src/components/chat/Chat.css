@@ -1,0 +1,287 @@
+.container-fluid{
+	
+	background: 
+		url("https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-023.jpg");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	backface-visibility: hidden;
+	height: 100vh;
+}
+#chat {
+	box-shadow: 0 2px 5px black;
+}
+
+#online {
+	position: relative;
+	top: 15px;
+	right: 35px;
+	color: #367dd0;
+}
+
+.custom-file-input {
+	height: 90px;
+}
+#img {
+	margin-bottom: 60px;
+}
+#upload {
+	padding: 20 30;
+	color: #fff;
+	border: none;
+	font-size: 8px;
+	border-radius: 5px;
+	position: relative;
+	left: -70px;
+	top: 200px;
+}
+
+.edit-name {
+	position: relative;
+	top: 120px;
+}
+
+.list-group-item {
+	width: 100;
+	background: none;
+	margin-top: 20px;
+}
+
+input[type='file']::-webkit-file-upload-button {
+	padding: 20 30;
+	color: #fff;
+	background-color: #6a1b9a;
+	border: none;
+	font-size: 8px;
+	border-radius: 5px;
+	margin-left: 50px;
+	margin-top: 190px;
+	position: absolute;
+}
+
+#button-edit {
+	padding: 20 30;
+	color: #6a1b9a;
+	border: none;
+	font-size: 8px;
+	border-radius: 5px;
+	outline: none;
+}
+
+#button-edit:hover {
+	background: none;
+	color: #005aba;
+}
+
+.image-profil {
+	background: url('https://imageshack.com/i/pl7LxIhyp');
+	height: 240px;
+	position: relative;
+	bottom: 15px;
+}
+#img {
+	margin-left: 30%;
+}
+
+#upload button {
+	padding: 20 30;
+	color: #fff;
+	background-color: #6a1b9a;
+	border: none;
+	font-size: 8px;
+	border-radius: 5px;
+	position: absolute;
+	left: 240px;
+	bottom: 345px;
+}
+#edit {
+	color: white;
+	border: none;
+	font-size: 8px;
+
+	border-radius: 10px;
+	outline: none;
+	border: none;
+}
+
+#edit:hover {
+	color: lightblue;
+}
+#btn-edit {
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	font-size: 8px;
+}
+#btn-edit:hover {
+	background: none;
+}
+
+#btn-profile {
+	margin-left: 29%;
+}
+
+#icon-edit {
+	color: #367dd0;
+	position: relative;
+	bottom: 35px;
+}
+
+#icon-edit:hover {
+	color: blue;
+}
+
+#nameUser {
+	font-size: 12px;
+	margin-left: 50px;
+	position: absolute;
+}
+
+#btn-chat {
+	margin: 0px;
+	width: 90%;
+	margin-left: 20px;
+}
+
+#icon-mess input[type='text'] {
+	padding-left: 40px;
+	padding-right: 60px;
+}
+
+#icon-mess i {
+	position: absolute;
+	bottom: 28px;
+	margin-left: 5px;
+	font-size: 30px;
+	color: #ced4da;
+}
+
+#send {
+	position: absolute;
+	left: 90%;
+	color: #6a1b9a !important;
+}
+
+#send:hover {
+	color: blue;
+}
+.modal-header {
+	background: #6a1b9a;
+}
+
+/* ---------->  chat message*/
+.list-chat p {
+	position: absolute;
+	left: 80px;
+}
+
+/* ---------------->search */
+#cari {
+	border-radius: 10px;
+}
+#fas-search {
+	position: relative;
+	bottom: 35px;
+	left: 3px;
+	color: #90757d;
+	cursor: pointer;
+	background: none;
+	border: none;
+	font-size: 15px;
+}
+
+#fas-search:hover {
+	color: #6a1b9a;
+	background: none;
+	border: none;
+}
+#addFriends {
+	background: none;
+	border: none;
+	position: absolute;
+	left:160px;
+	color: rgb(51, 50, 50);
+}
+
+#addFriends:hover {
+	color: #6a1b9a;
+	background: none;
+	border: none;
+}
+
+#divs {
+	width: 72px;
+	margin: 20px auto;
+	z-index: 9999;
+	position: relative;
+}
+
+/* buuton back */
+#btn-back {
+	border: none;
+	background: none;
+	color: #6a1b9a;
+}
+
+#btn-back:hover {
+	color: black;
+	border: none;
+	background: none;
+}
+
+#btn-unfriend {
+	position: absolute;
+	font-size: 10px;
+	background: none;
+	border: none;
+	left: 160px;
+	color: #6a1b9a;
+}
+#btn-unfriend:hover {
+	color: black;
+}
+
+#div {
+	width: 72px;
+	margin: 80px auto;
+	position: relative;
+}
+#span {
+	height: 12px;
+	width: 12px;
+	border-radius: 50%;
+	background-color: #b64ebd;
+	position: absolute;
+	bottom: 0;
+	animation: wave 2.5s infinite ease-in-out;
+}
+#span:first-child {
+	animation-delay: 0.2s;
+}
+#span:nth-child(2) {
+	animation-delay: 0.4s;
+	left: 15px;
+}
+#span:nth-child(3) {
+	animation-delay: 0.6s;
+	left: 30px;
+}
+#span:nth-child(4) {
+	animation-delay: 0.8s;
+	left: 45px;
+}
+#span:last-child {
+	animation-delay: 1s;
+	right: 0;
+}
+@keyframes wave {
+	0%,
+	50%,
+	100% {
+		transform: translatey(0);
+	}
+	25% {
+		transform: translatey(-15px);
+		background-color: #f8f8f8;
+	}
+}

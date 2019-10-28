@@ -1,0 +1,270 @@
+#container{
+	/*background: rgb(61,53,60);
+    background: linear-gradient(90deg, rgba(61,53,60,1) 2%, rgba(139,0,139,1) 57%, rgba(0,0,0,0.5186449579831933) 97%);*/
+	height: 100vh;
+	width: 100%;
+	position: relative;
+	background: linear-gradient(
+			to right,
+			rgba(128, 0, 128, 0.918),
+			rgba(128, 0, 128, 0.87)
+		),
+		url('../../assets/img/bg.jpg');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	backface-visibility: hidden;
+	height: 100vh;
+
+}
+
+#keluar{
+	margin: 10px;
+	color:white;
+	font-size: 20px;
+}
+#keluar:hover {
+	color: blue;
+}
+
+#some-element{
+	text-transform: uppercase;
+	display: none;
+}
+.some-div:hover #some-element{
+display: flex;
+position: absolute;
+top: 10px;
+left: 50px;
+color: white;
+}
+
+.icon input[type=text]{
+	padding-left: 40px;
+
+}
+
+.icon input[type=password]{
+	padding-left: 40px;
+
+}
+.icon input[type=email]{
+	padding-left: 40px;
+}
+
+.icon input[type=number]{
+	padding-left:40px;
+}
+
+.icon{
+	position: relative;
+}
+
+.icon i{
+position: absolute;
+left:0;
+top:5px;
+padding: 9px 8px;
+color:#aaa;
+/*transition: 3s;*/
+}
+
+.icon input[type=text]:focus + i{
+	color: dodgerBlue;
+}
+
+.icon input[type=password]:focus + i{
+	color: dodgerBlue;
+}
+
+.icon input[type=email]:focus + i{
+	color: dodgerBlue;
+}
+
+.icon input[type=number]:focus + i{
+	color: dodgerBlue;
+}
+.login-left{
+	text-align: center;
+	color:#fff;
+	padding: 30px;
+	position: relative;
+	top: 80px;
+}
+
+.login-left img{
+	margin-top: 60px;
+	margin-bottom: 18px;
+	width: 80px;
+	animation: mover 1s infinite alternate;
+}
+
+
+.login-left p{
+	padding:20px 20px 0;
+}
+
+.login-left .btn-primary{
+	border-radius: 1.5rem;
+	border: none;
+	width: 120px;
+	font-weight: 600;
+	color:#555;
+	background: #f8f8f8;
+	margin-top:20px;
+	padding: 10px;
+}
+
+#input-2{
+	margin-top:20px;
+}
+
+.login-left .btn-primary:hover{
+	background:  #B64EBD;
+	color:white;
+}
+
+.login-right{
+	position: relative;
+	top: 120px;
+	background: #f8f8f8;
+	border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+	border-top-right-radius: 10% 50%;
+    border-bottom-right-radius: 10% 50%;
+	padding: 50px;
+	left:20%;
+	
+}
+
+.login-right h2{
+	border:none;
+	text-align: center;
+	margin-bottom: 10px;
+	color:#555;
+
+}
+
+.login-form{
+	padding: 30px
+}
+
+.login-right .btn-primary{
+	float:center;
+	border-radius: 1.5rem;
+	border: none;
+	width: 120px;
+	background: #8b008b;
+	font-weight: 600;
+	color: white;
+	margin-top:20px;
+}
+
+.login-right .btn-primary:hover{
+	background: #B64EBD;
+}
+
+#register-right{
+	position: relative;
+	bottom: 70px;
+}	
+
+
+
+@keyframes mover{
+	0%{transform: translateY(0);}
+	100%{transform: translateY(-20px);}
+
+}
+
+#preloader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: linear-gradient(
+			to right,
+			rgba(128, 0, 128, 0.918),
+			rgba(128, 0, 128, 0.87)
+		),
+		url('../../assets/img/bg.jpg');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	backface-visibility: hidden;
+	height: 100%;
+}
+#loader {
+	display: block;
+	position: relative;
+	left: 50%;
+	top: 50%;
+	width: 150px;
+	height: 150px;
+	margin: -75px 0 0 -75px;
+	border-radius: 50%;
+	border: 3px solid transparent;
+	border-top-color: #9370db;
+	-webkit-animation: spin 2s linear infinite;
+	animation: spin 2s linear infinite;
+}
+#loader:before {
+	content: '';
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	right: 5px;
+	bottom: 5px;
+	border-radius: 50%;
+	border: 3px solid transparent;
+	border-top-color: #ba55d3;
+	-webkit-animation: spin 3s linear infinite;
+	animation: spin 3s linear infinite;
+}
+#loader:after {
+	content: '';
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	right: 15px;
+	bottom: 15px;
+	border-radius: 50%;
+	border: 3px solid transparent;
+	border-top-color: #ff00ff;
+	-webkit-animation: spin 1.5s linear infinite;
+	animation: spin 1.5s linear infinite;
+}
+@-webkit-keyframes spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+@keyframes spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+
+@media screen and (max-width: 768px){
+	.login-right{
+		position: relative;
+/*	margin-right:20%;*/
+	margin-left:-20%; 
+	}
+
+}
