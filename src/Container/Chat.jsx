@@ -12,6 +12,8 @@ class Chat extends React.Component {
       name: "",
       nameUser: "",
       id: "",
+      deleteid:"",
+      unfriendId:"",
       idLogin: "",
       telp: "",
       email: "",
@@ -215,9 +217,9 @@ class Chat extends React.Component {
       });
   };
 
-  handleRemove = chat => {
-    // console.log(chat);
-    const idPesan = chat.id;
+  handleRemove = () => {
+   
+    const idPesan = this.state.deleteid;
     axios
       .delete(
         `https://aqueous-hollows-28311.herokuapp.com/chat/delete/${idPesan}`
@@ -226,6 +228,14 @@ class Chat extends React.Component {
         this.handleChangeChat();
       });
   };
+
+  mapingchat = (chat) => {
+    console.log("iddddddddddd chaaaata" ,chat.id)
+    this.setState({
+        deleteid:chat.id
+    })
+  }
+
   // toggle----------------------------------->
   toggle = () => {
     this.setState({
@@ -243,11 +253,13 @@ class Chat extends React.Component {
     // console.log("staet", this.state.idUser);
     const nameUser = chats.name;
     const dataId = await chats.friend_id;
+    const friendid = chats.id
     // const dataIds = await chats.id;
     // console.log(dataId);
     // console.log(nameUser);
     this.setState({
       idUser: dataId,
+      unfriendId:friendid,
       // friend_id: dataIds,
       nameUser: nameUser
     });
@@ -337,18 +349,24 @@ class Chat extends React.Component {
         `https://aqueous-hollows-28311.herokuapp.com/friend/${id_login}/${friend_id}`
       )
       .then(res => {
-        // console.log(res);
-
-        window.location.reload();
-      });
+      
+        console.log(res);
+          if(res.data.message === ""){
+            return alert("anda sudah berteman")
+          }else{
+      window.location.reload();
+          }
+  
+      })
+     
   };
 
   klikPict = () => {
     window.location.reload();
   };
 
-  handleUnfriend = chats => {
-    const freinds = chats.id;
+  handleUnfriend = () => {
+    const freinds = this.state.unfriendId;
     const id = this.state.user.id;
     axios
       .delete(
@@ -360,6 +378,10 @@ class Chat extends React.Component {
         window.location.reload();
       });
   };
+
+
+
+
 
   render() {
     const { idChat, handleRemove, handleUnfriend } = this;
@@ -569,6 +591,7 @@ class Chat extends React.Component {
                         className="row"
                         key={chats.friend_id}
                         onClick={() => idChat(chats)}
+                       
                       >
                         <div
                           class="list-group list-chat"
@@ -618,7 +641,7 @@ class Chat extends React.Component {
                                           <h5
                                             class="modal-title"
                                             id="exampleModalLabel"
-                                            style={{color:"white"}}
+                                            style={{ color: "white" }}
                                           >
                                             Hapus Kontak
                                           </h5>
@@ -628,12 +651,18 @@ class Chat extends React.Component {
                                             data-dismiss="modal"
                                             aria-label="Close"
                                           >
-                                            <span style={{color: "white"}} aria-hidden="true">
+                                            <span
+                                              style={{ color: "white" }}
+                                              aria-hidden="true"
+                                            >
                                               &times;
                                             </span>
                                           </button>
                                         </div>
-                                        <div class="modal-body">Apakah anda yakin Ingin menghapus kontak ini?</div>
+                                        <div class="modal-body">
+                                          Apakah anda yakin Ingin menghapus
+                                          kontak ini?
+                                        </div>
                                         <div class="modal-footer">
                                           <button
                                             type="button"
@@ -647,7 +676,9 @@ class Chat extends React.Component {
                                             class="btn btn-danger"
                                             aria-hidden="true"
                                             key={chats.id}
-                                            onClick={() => handleUnfriend(chats)}
+                                            onClick={() =>
+                                              handleUnfriend(chats)
+                                            }
                                           >
                                             Ya
                                           </button>
@@ -1061,10 +1092,12 @@ class Chat extends React.Component {
                       {this.state.pesanChat.map((chat, index) => (
                         <div key={chat.id}>
                           {this.state.user.id === chat.sender_id ? (
-                            
                             <p
-                            data-toggle="modal" data-target="#exampleModal1"
+                              data-toggle="modal"
+                              data-target="#exampleModal1"
                               className="list-group-item"
+                              key={chat.id}
+                              onClick={() => this.mapingchat(chat)}
                               style={{
                                 background: "#D8B6DE",
                                 color: "black",
@@ -1076,27 +1109,62 @@ class Chat extends React.Component {
                               }}
                             >
                               {chat.text}
-                        
                               {/* <!-- Modal --> */}
-<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 style={{color:'white'}} class="modal-title" id="exampleModalLabel">Hapus Pesan</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span style={{color:"white"}} aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div  class="modal-body">
-        Hapus pesan ini ?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Tidak</button>
-        <button type="button"   onClick={() => handleRemove(chat)} class="btn btn-primary">Ya</button>
-      </div>
-    </div>
-  </div>
-</div>
+                              <div
+                                class="modal fade"
+                                id="exampleModal1"
+                                tabindex="-1"
+                                role="dialog"
+                                aria-labelledby="exampleModalLabel"
+                                aria-hidden="true"
+                              >
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5
+                                        style={{ color: "white" }}
+                                        class="modal-title"
+                                        id="exampleModalLabel"
+                                      >
+                                        Hapus Pesan
+                                      </h5>
+                                      <button
+                                        type="button"
+                                        class="close"
+                                        data-dismiss="modal"
+                                        aria-label="Close"
+                                      >
+                                        <span
+                                          style={{ color: "white" }}
+                                          aria-hidden="true"
+                                        >
+                                          &times;
+                                        </span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      Hapus pesan ini ?
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button
+                                        type="button"
+                                        class="btn btn-danger"
+                                        data-dismiss="modal"
+                                      >
+                                        Tidak
+                                      </button>
+                                      <button
+                                        type="button"
+                                        key={chat.id}
+                                        onClick={() => handleRemove(chat)}
+                                        class="btn btn-primary"
+                                      >
+                                        Ya
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </p>
                           ) : (
                             <p
@@ -1126,7 +1194,6 @@ class Chat extends React.Component {
                     width: "53%"
                   }}
                 >
-                  
                   <input
                     style={{ borderRadius: "10px" }}
                     class="form-control "
