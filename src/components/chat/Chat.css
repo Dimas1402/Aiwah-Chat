@@ -1,7 +1,5 @@
-.container-fluid{
-	
-	background: 
-		url("https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-023.jpg");
+.container-fluid {
+	background: violet;
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -199,7 +197,7 @@ input[type='file']::-webkit-file-upload-button {
 	background: none;
 	border: none;
 	position: absolute;
-	left:160px;
+	left: 160px;
 	color: rgb(51, 50, 50);
 }
 
@@ -283,5 +281,15 @@ input[type='file']::-webkit-file-upload-button {
 	25% {
 		transform: translatey(-15px);
 		background-color: #f8f8f8;
+	}
+}
+
+@media only screen and (min-width: 1440px) {
+	.form-control {
+		width: 65%;
+	}
+	#send {
+		position: absolute;
+		left: 65%;
 	}
 }
