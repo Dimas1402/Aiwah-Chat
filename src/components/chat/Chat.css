@@ -144,7 +144,11 @@ input[type='file']::-webkit-file-upload-button {
 #icon-mess input[type='text'] {
 	padding-left: 40px;
 	padding-right: 60px;
+	position: absolute;
+	bottom: 3.5%;
+	width: 95%;
 }
+
 
 #icon-mess i {
 	position: absolute;
@@ -154,9 +158,13 @@ input[type='file']::-webkit-file-upload-button {
 	color: #ced4da;
 }
 
-#send {
+#send{
+	border: none !important;;
+	outline: none !important;
+	box-shadow: none !important;;
 	position: absolute;
-	left: 90%;
+	bottom: 5%;
+	right: 5%;
 	color: #6a1b9a !important;
 }
 

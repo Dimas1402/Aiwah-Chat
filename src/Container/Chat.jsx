@@ -1186,14 +1186,7 @@ class Chat extends React.Component {
                 </div>
               </div>
               <div id="icon-mess">
-                <form
-                  onSubmit={this.handleSubmit}
-                  style={{
-                    bottom: "0",
-                    position: "fixed",
-                    width: "53%"
-                  }}
-                >
+                <form onSubmit={this.handleSubmit}>
                   <input
                     style={{ borderRadius: "10px" }}
                     class="form-control "
@@ -1203,10 +1196,8 @@ class Chat extends React.Component {
                     onChange={this.handleChangeMessage}
                     required
                   ></input>
-                  <i class="far fa-comment-dots"></i>
-                  <button type="submit" class="btn btn-outline-light">
-                    {" "}
-                    <i id="send" class="fas fa-arrow-circle-right"></i>
+                  <i class="far fa-comment-dots" />
+                  <button type="submit" className='fas fa-arrow-circle-right' id="send">
                   </button>
                 </form>
               </div>
