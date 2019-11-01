@@ -1,9 +1,7 @@
 import React from 'react';
 import './Home.scss';
-import '../../assets/img/ok.jpg';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
-import laptop from '../../assets/img/macbookpro13_front.png';
 
 const Home = () => {
 	return (

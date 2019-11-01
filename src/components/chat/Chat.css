@@ -6,10 +6,6 @@
 	backface-visibility: hidden;
 	height: 100vh;
 }
-#chat {
-	box-shadow: 0 2px 5px black;
-}
-
 #online {
 	position: relative;
 	top: 15px;
@@ -130,7 +126,8 @@ input[type='file']::-webkit-file-upload-button {
 }
 
 #nameUser {
-	font-size: 12px;
+	font-size: 24px !important;
+	letter-spacing: 2px;
 	margin-left: 50px;
 	position: absolute;
 }
@@ -149,7 +146,6 @@ input[type='file']::-webkit-file-upload-button {
 	width: 95%;
 }
 
-
 #icon-mess i {
 	position: absolute;
 	bottom: 28px;
@@ -158,10 +154,10 @@ input[type='file']::-webkit-file-upload-button {
 	color: #ced4da;
 }
 
-#send{
-	border: none !important;;
+#send {
+	border: none !important;
 	outline: none !important;
-	box-shadow: none !important;;
+	box-shadow: none !important;
 	position: absolute;
 	bottom: 5%;
 	right: 5%;

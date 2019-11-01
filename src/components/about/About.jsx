@@ -2,8 +2,6 @@ import React from 'react';
 import './About.scss';
 import Header from '../header/Header';
 
-import { bae, andi } from '../../assets/img/photos';
-
 const About = () => {
 	return (
 		<div className='about'>
