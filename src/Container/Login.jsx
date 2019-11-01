@@ -3,8 +3,6 @@ import Axios from 'axios';
 import { Redirect, Link } from 'react-router-dom';
 import Header from '../components/header/Header';
 
-let brand = require('../assets/img/a.svg');
-
 class Login extends React.Component {
 	constructor() {
 		super();
@@ -14,27 +12,37 @@ class Login extends React.Component {
 			// usernameErr:"",
 			passwordErr: '',
 			token: '',
-			user: '',
+			user: ''
 		};
 	}
-	handleChange = (e) => {
+	handleChange = e => {
 		this.setState({
-			[e.target.name]: e.target.value,
+			[e.target.name]: e.target.value
 		});
 	};
 	validate = () => {
+		// const { usernameErr } = this.state;
 		const { passwordErr } = this.state;
 		if (!this.state.passwordErr) {
-			this.setState({ passwordErr: 'Username or Password wrong.' });
+			this.setState({ passwordErr: 'password failed' });
 		}
-
+		//   this.setState({ usernameErr: "username failed" });
+		// }
 		if (passwordErr) {
+			// if (!this.state.username) {
 			this.setState({ passwordErr: passwordErr });
 			return false;
 		}
 		return true;
 	};
-	signIn = (i) => {
+	signIn = i => {
+		// const {
+		//   name,
+		// password,
+		// passwordErr,
+		// token,
+		// user} = this.state
+
 		i.preventDefault();
 		const isValid = this.validate();
 		if (isValid) {
@@ -42,26 +50,26 @@ class Login extends React.Component {
 		}
 		const dataInput = {
 			name: this.state.name,
-			password: this.state.password,
+			password: this.state.password
 		};
 		this.setState({
-			isLoading: true,
+			isLoading: true
 		});
 
 		Axios.post('https://aqueous-hollows-28311.herokuapp.com/login', dataInput)
-			.then((res) => {
+			.then(res => {
 				console.log('dataUsernya', res.data.login);
 				localStorage.setItem('token', res.data.access_token);
 				localStorage.setItem('user', JSON.stringify(res.data.login));
 				this.setState({
 					// token: res.data.access_token,
 					// user:res.data.user,
-					isLoading: false,
+					isLoading: false
 				});
 			})
-			.catch((err) => {
+			.catch(err => {
 				this.setState({
-					isLoading: false,
+					isLoading: false
 				});
 				alert('gagal login');
 			});
@@ -81,43 +89,84 @@ class Login extends React.Component {
 		return (
 			<div id='container' className='container-fluid'>
 				<Header />
-				<div className='container'>
-					<div className='row'>
-						<div className='col'>
-							<div className='login-form'>
-								<img src={brand} alt='' />
-								<div className='login-section'>
+				<div id='row' className='row'>
+					<div className='col-md-10 offset=md-1'>
+						<div className='row'>
+							<div className='col-md-5 login-left'>
+								<img
+									src='https://imagizer.imageshack.com/img922/629/ujl8Wz.png'
+									alt=''
+								/>
+								<h3>Join us</h3>
+								<p>Buruan Daftar Sekarang !</p>
+								<Link to='/register'>
+									<button type='button' className='btn btn-primary'>
+										Sign Up
+									</button>
+								</Link>
+							</div>
+							<div className='col-md-5 login-right'>
+								<h2>Sign In</h2>
+								<div className='login-form'>
 									<form onSubmit={this.signIn} logOut={this.signOut}>
-										<div style={{ fontSize: 15, color: 'red', marginLeft: 35 }}>
-											{this.state.passwordErr}
+										<div className='form-group'>
+											<div className='icon'>
+												<input
+													id='input-1'
+													className='form-control'
+													type='text'
+													name='name'
+													placeholder='Username'
+													value={this.state.name}
+													onChange={this.handleChange}
+													required
+												/>
+												<i
+													class='fas fa-user-alt fa-lg fa-fw'
+													aria-hidden='true'></i>
+											</div>
+											{/* <div style={{ fontSize: 12, color: "red" }}>
+                {this.state.usernameErr}
+              </div>  
+*/}
+											<div className='icon'>
+												<input
+													id='input-2'
+													className='form-control'
+													type='password'
+													name='password'
+													placeholder='Password'
+													value={this.state.password}
+													onChange={this.handleChange}
+													required
+												/>
+												<i
+													class='fas fa-key fa-lg fa-fw'
+													aria-hidden='true'></i>
+											</div>
+
+											{/*
+                          <div className="icon">
+                          <input 
+                            id="input-2"
+                            className="form-control"
+                            type="password" 
+                            name="password" 
+                            placeholder="password.."
+                            value={this.state.password}
+                            onChange={this.handleChange}
+                            required
+                          />
+                             <i class="fas fa-key fa-lg fa-fw" aria-hidden="true"></i>
+                          </div>*/}
+
+											<div style={{ fontSize: 12, color: 'red' }}>
+												{this.state.passwordErr}
+											</div>
 										</div>
-										<input
-											type='text'
-											name='name'
-											placeholder=' Username'
-											value={this.state.name}
-											onChange={this.handleChange}
-											autoComplete='off'
-											required
-										/>
-										<input
-											type='password'
-											name='password'
-											placeholder='Password'
-											value={this.state.password}
-											onChange={this.handleChange}
-											autoComplete='off'
-											required
-										/>
-										<button type='submit' className='btn btn-outline-primary'>
+										<button className='btn btn-primary' type='submit'>
 											Login
 										</button>
-										<br />
-										<div className='reg'>
-											<span>
-												belum <Link to='/register'>daftar?</Link>
-											</span>
-										</div>
 									</form>
 								</div>
 							</div>
