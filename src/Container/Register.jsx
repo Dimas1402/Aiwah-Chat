@@ -1,173 +1,215 @@
-import React from 'react';
-import { Redirect, Link } from 'react-router-dom';
-import Axios from 'axios';
-import Header from '../components/header/Header';
+import React from "react";
+import { Redirect, Link } from "react-router-dom";
+import Axios from "axios";
+import Header from '../components/header/Header'
 
 class Register extends React.Component {
-	constructor() {
-		super();
-		this.state = {
-			name: '',
-			password: '',
-			email: '',
-			telp: '',
-			nameErr: '',
-			emailErr: '',
-			err: '',
-			// avatar:"",
-			registered: false,
-		};
-	}
+  constructor() {
+    super();
+    this.state = {
+      name: "",
+      password: "",
+      email: "",
+      telp: "",
+      nameErr: "",
+      emailErr: "",
+      err: "",
+      // avatar:"",
+      registered: false
+    };
+  }
 
-	handleChange = (e) => {
-		this.setState({
-			[e.target.name]: e.target.value,
-		});
-	};
-	validate = () => {
-		const { nameErr } = this.state;
-		const { emailErr } = this.state;
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+  validate = () => {
+    const { nameErr } = this.state;
+    const { emailErr } = this.state;
 
-		if (!this.state.nameErr) {
-			this.setState({ nameErr: 'username telah digunakan' });
-		}
-		if (!this.state.emailErr) {
-			this.setState({ emailErr: 'email telah digunakan' });
-		}
-		if ((nameErr, emailErr)) {
-			this.setState({ nameErr: nameErr, emailErr: emailErr });
-			return false;
-		}
-		return true;
-	};
-	handleSave = (e) => {
-		e.preventDefault();
-		const isValid = this.validate();
-		if (isValid) {
-			console.log(this.state);
-		}
-		const regis = {
-			name: this.state.name,
-			password: this.state.password,
-			email: this.state.email,
-			telp: this.state.telp,
-			// avatar: this.state.avatar
-		};
-		this.setState({
-			isLoading: true,
-		});
+    if (!this.state.nameErr) {
+      this.setState({ nameErr: "username telah digunakan" });
+    }
+    if (!this.state.emailErr) {
+      this.setState({ emailErr: "email telah digunakan" });
+    }
+    if ((nameErr, emailErr)) {
+      this.setState({ nameErr: nameErr, emailErr: emailErr });
+      return false;
+    }
+    return true;
+  };
+  handleSave = e => {
+    e.preventDefault();
+    const isValid = this.validate();
+    if (isValid) {
+      console.log(this.state);
+    }
+    const regis = {
+      name: this.state.name,
+      password: this.state.password,
+      email: this.state.email,
+      telp: this.state.telp
+      // avatar: this.state.avatar
+    };
+    this.setState({
+      isLoading: true
+    });
 
-		Axios.post(
-			'https://aqueous-hollows-28311.herokuapp.com/register',
-			regis,
-		).then((res) => {
-			this.setState({
-				name: '',
-				password: '',
-				email: '',
-				telp: '',
-				// avatar:"",
-				isLoading: false,
-				registered: true,
-			});
-			if (res.data.status === 400) {
-				alert('username atau email telah terpakai');
-			} else {
-				alert('data tersimpan');
-				console.log(res);
-				return <Redirect to='/login' />;
-			}
-		});
-	};
-	render() {
-		const { registered, isLoading } = this.state;
+    Axios.post(
+      "https://aqueous-hollows-28311.herokuapp.com/register",
+      regis
+    ).then(res => {
+      this.setState({
+        name: "",
+        password: "",
+        email: "",
+        telp: "",
+        // avatar:"",
+        isLoading: false,
+        registered: true
+      });
+      if (res.data.status === 400) {
+        this.setState({
+          nameErr: "username sudah ada atau terpakai"
+        })
+      } else {;
+        return <Redirect to="/login" />;
+      }
+    });
+    // .catch(errs =>{
+    //   localStorage.setItem("err",errs.data.errors)
+    //     this.setState({
+    //       err:errs.data.errors,
+    //       name: "",
+    //       password: "",
+    //       email: "",
+    //       telp:"",
+    //       isLoading:false
+    //     })
+    //    alert("tidak masuk")
+    // })
+  };
+  render() {
+    const { registered, isLoading } = this.state;
 
-		if (registered) {
-			return <Redirect to='/login' />;
-		} else if (isLoading) {
-			return (
-				<div id='preloader'>
-					<div id='loader'></div>
-				</div>
-			);
-		}
-		return (
-			<div id='container' className='container-fluid'>
-				<Header />
+    if (registered) {
+      return <Redirect to="/login" />;
+    } else if (isLoading) {
+      return (
+        <div id="preloader">
+          <div id="loader"></div>
+        </div>
+      );
+    }
+    return (
+      <div id="container" className="container-fluid">
+        <Header />
+        <div id="row" className="row">
+          <div className="col-md-10 offset=md-1">
+            <div className="row">
+              <div className="col-md-5 register-left">
+                <img src="https://imagizer.imageshack.com/img922/629/ujl8Wz.png" alt='' />
+                <h3>Masuk</h3>
+                <p>Sudah Punya Akun?</p>
+                <Link to="/login">
+                  <button type="button" className="btn btn-primary">
+                    Sign In
+                  </button>
+                </Link>
+              </div>
+              <div className="col-md-5 register-right" id="register-right">
+                <h2>Sign Up</h2>
+                <div className="register-form">
+                  <form onSubmit={this.handleSave}>
+                    <div className="icon">
+                      <input
+                
+                        className="form-control"
+                        placeholder="Username"
+                        type="text"
+                        name="name"
+                        value={this.state.name}
+                        onChange={this.handleChange}
+                        required
+                        autoComplete="off"
+                      />
+                      <i
+                        className="fas fa-user-alt fa-lg fa-fw"
+                        aria-hidden="true"
+                      ></i>
+                    </div>
+                    <div style={{ fontSize: 12, color: "red" }}>
+                      {this.state.nameErr}
+                    </div>
 
-				<div className='container'>
-					<div className='row'>
-						<div className='col-sm'>
-							<div className='register-form '>
-								<div className='register-section'>
-									<form onSubmit={this.handleSave}>
-										<div style={{ fontSize: 15, color: 'red', marginLeft: 35 }}>
-											{this.state.passwordErr}
-										</div>
+                    <div className="icon">
+                      <input
+                   
+                        className="form-control"
+                        placeholder="Email"
+                        type="email"
+                        name="email"
+                        value={this.state.email}
+                        onChange={this.handleChange}
+                        required
+                        autoComplete="off"
+                      />
+                      <i className="fas fa-at fa-lg fa-fw"></i>
+                    </div>
+                    <div style={{ fontSize: 12, color: "red" }}>
+                      {this.state.emailErr}
+                    </div>
 
-										<input
-											type='text'
-											name='name'
-											placeholder=' Username'
-											value={this.state.name}
-											onChange={this.handleChange}
-											autoComplete='off'
-											required
-										/>
-										<div style={{ fontSize: 12, color: 'red' }}>
-											{this.state.nameErr}
-										</div>
-										<input
-											placeholder=' Email'
-											type='email'
-											name='email'
-											value={this.state.email}
-											onChange={this.handleChange}
-											autoComplete='off'
-											required
-										/>
-										<div style={{ fontSize: 12, color: 'red' }}>
-											{this.state.emailErr}
-										</div>
-										<input
-											type='password'
-											name='password'
-											placeholder=' Password'
-											value={this.state.password}
-											onChange={this.handleChange}
-											autoComplete='off'
-											required
-										/>
-										<input
-											placeholder=' Nomor Telepon'
-											type='number'
-											name='telp'
-											value={this.state.telp}
-											onChange={this.handleChange}
-											autoComplete='off'
-											required
-										/>
-										<button
-											type='submit'
-											className='btn btn-outline-primary'
-											id='tombol'>
-											Sign Up
-										</button>
-										<br />
-										<div className='reg'>
-											<span>
-												sudah punya akun? <Link to='/login'>masuk.</Link>
-											</span>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		);
-	}
+                    <div className="icon">
+                      <input
+                  
+                        className="form-control"
+                        placeholder="Password"
+                        type="password"
+                        name="password"
+                        value={this.state.password}
+                        onChange={this.handleChange}
+                        required
+                      />
+                      <i className="fas fa-key fa-lg fa-fw" aria-hidden="true"></i>
+                    </div>
+
+                    <div className="icon">
+                      <input
+                  
+                        className="form-control"
+                        placeholder="Nomor Telepon"
+                        type="number"
+                        name="telp"
+                        value={this.state.telp}
+                        onChange={this.handleChange}
+                        required
+                        autoComplete="off"
+                      />
+                      <i
+                        className="fas fa-phone-alt fa-lg fa-lw"
+                        aria-hidden="true"
+                      ></i>
+                    </div>
+
+                    <button
+                      className="btn btn-primary"
+                      id="btn-register"
+                      type="submit"
+                    >
+                      Register
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Register;

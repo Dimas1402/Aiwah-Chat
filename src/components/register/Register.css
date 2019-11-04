@@ -1,104 +1,131 @@
+.icon input[type='text'] {
+	padding-left: 40px;
+	border-radius: 10px;
+}
 
+.icon input[type='password'] {
+	padding-left: 40px;
+	border-radius: 10px;
+}
+.icon input[type='email'] {
+	padding-left: 40px;
+	border-radius: 10px;
+}
 
-.register-left{
+.icon input[type='number'] {
+	padding-left: 40px;
+	border-radius: 10px;
+}
+
+.icon input[type='text']:focus + i {
+	color: dodgerBlue;
+}
+
+.icon input[type='password']:focus + i {
+	color: dodgerBlue;
+}
+
+.icon input[type='email']:focus + i {
+	color: dodgerBlue;
+}
+
+.icon input[type='number']:focus + i {
+	color: dodgerBlue;
+}
+
+.register-left {
 	text-align: center;
-	color:#fff;
+	color: #fff;
 	padding: 30px;
 	position: relative;
 	top: 80px;
 }
 
-.register-left img{
+.register-left img {
 	margin-top: 60px;
 	margin-bottom: 18px;
 	width: 80px;
 	animation: mover 1s infinite alternate;
 }
 
-
-.register-left p{
-	padding:20px 20px 0;
+.register-left p {
+	padding: 20px 20px 0;
 }
 
-.register-left .btn-primary{
+.register-left .btn-primary {
 	border-radius: 1.5rem;
 	border: none;
 	width: 120px;
 	background: #f8f8f8;
 	font-weight: 600;
-	color:#555;
-	margin-top:20px;
+	color: #555;
+	margin-top: 20px;
 	padding: 10px;
 }
 
-
-.register-left .btn-primary:hover{
-	background:  #B64EBD;
-	color:white;
+.register-left .btn-primary:hover {
+	background: #b64ebd;
+	color: white;
 }
 
-.register-right{
+.register-right {
 	position: relative;
-	left:20%;
+	left: 20%;
 	top: 70px;
-	border:none;
-	background: #f8f8f8;
-	border-top-left-radius: 10% 50%;
-    border-bottom-left-radius: 10% 50%;
-    border-top-right-radius: 10% 50%;
-    border-bottom-right-radius: 10% 50%;
-    padding: 30px;
-}
-
-.register-right h2{
-	text-align: center;
-	margin-bottom: 10px;
-	color:#555;
-
-}
-
-.register-form{
+	border: none;
+	background: #f8f8f8d3;
+	border-radius: 20px;
 	padding: 30px;
 }
 
-.register-form input{
-	margin-top:20px; 
+.register-right h2 {
+	text-align: center;
+	letter-spacing: 2px;
+	margin-bottom: 10px;
+	color: purple;
 }
 
-.register-right .btn-primary{
-	float:center;
+.register-form {
+	padding: 30px;
+}
+
+.register-form input {
+	margin-top: 20px;
+}
+
+.register-right .btn-primary {
+	float: center;
 	border-radius: 1.5rem;
 	border: none;
 	width: 120px;
 	background: #8b008b;
 	font-weight: 600;
-	color:white;
-	margin-top:35px;
+	color: white;
+	margin-top: 35px;
 }
 
-.register-right .btn-primary:hover{
-	background: #B64EBD;
+.register-right .btn-primary:hover {
+	background: #b64ebd;
 }
 
-#register-right{
+#register-right {
 	position: relative;
 	bottom: 70px;
-}	
+}
 
-
-
-@keyframes mover{
-	0%{transform: translateY(0);}
-	100%{transform: translateY(-20px);}
-
+@keyframes mover {
+	0% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(-20px);
+	}
 }
 #preloader {
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
-
-
 
 	background: linear-gradient(
 			to right,
@@ -177,15 +204,33 @@
 	}
 }
 
-
-
 /* ---back */
 
-
-@media screen and (max-width: 768px){
-	.register-right{
+@media screen and (max-width: 767px) {
+	.register-right {
 		position: relative;
 		/*margin-right:30%; */
-		margin-left:-20%; 
+		margin-left: -20%;
+	}
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+	.header .navbar-brand {
+		margin-left: 0px;
+	}
+	.nav-link {
+		margin-left: 0px;
+	}
+	.register-right {
+		position: relative;
+		top: -280px;
+	}
+
+	.register-left {
+		position: relative;
+		top: 500px;
+	}
+	.container-fluid {
+		height: 150vh !important;
 	}
 }

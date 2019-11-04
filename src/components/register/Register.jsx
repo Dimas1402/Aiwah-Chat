@@ -1,6 +1,6 @@
 import React from 'react';
 import './Register.css';
-import RegisterContainer from '../../Container/Registers';
+import RegisterContainer from '../../Container/Register';
 
 const Register = () => {
 	return (

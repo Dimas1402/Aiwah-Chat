@@ -45,8 +45,6 @@ class Chat extends React.Component {
 
     this.handleChangeChat();
     setInterval(this.handleChangeChat, 5000);
-    const { idUser } = this.state.user;
-    // console.log('id', this.state.user);
     // -------------------- API menampilkan kontak  teman------------------
     axios
       .get(`https://aqueous-hollows-28311.herokuapp.com/friend/${id}`)
@@ -385,7 +383,7 @@ class Chat extends React.Component {
 
   render() {
     const { idChat, handleRemove, handleUnfriend } = this;
-    const chatt = this.state.chatUser;
+
 
     // console.log(' ini chat ku yaaa', chatt);
 
@@ -422,7 +420,7 @@ class Chat extends React.Component {
           )}
           <div
             className="row"
-            style={{ height: "100vh", background: "#eceff1" }}
+            style={{ height: "85vh", background: "#eceff1" }}
           >
             <div
               className="col-sm-4"
@@ -506,7 +504,7 @@ class Chat extends React.Component {
                         marginTop: "150px"
                       }}
                     >
-                      No Contacts.
+                      Belum mempunyai kontak.
                     </h1>
                   </div>
                 ) : this.state.saveCari &&
@@ -765,14 +763,14 @@ class Chat extends React.Component {
                             className="row ml-1"
                             style={{ marginTop: "20px" }}
                           >
-                            <a
+                            <Link
                               style={{
                                 color: "grey",
                                 borderBottom: "1px solid grey"
                               }}
                             >
                               Username
-                            </a>{" "}
+                            </Link>
                             <p style={{ marginLeft: "20px" }}>
                               {this.state.user.name}
                             </p>
@@ -889,14 +887,14 @@ class Chat extends React.Component {
                             style={{ marginTop: "20px" }}
                             className="row ml-1"
                           >
-                            <a
+                            <p
                               style={{
                                 color: "grey",
                                 borderBottom: "1px solid grey"
                               }}
                             >
                               telp
-                            </a>
+                            </p>
                             <p style={{ marginLeft: "65px" }}>
                               {this.state.user.telp}
                             </p>
@@ -919,14 +917,14 @@ class Chat extends React.Component {
                             className="row ml-1"
                             style={{ marginTop: "20px" }}
                           >
-                            <a
+                            <p
                               style={{
                                 color: "grey",
                                 borderBottom: "1px solid grey"
                               }}
                             >
                               Email
-                            </a>{" "}
+                            </p>{" "}
                             <p style={{ marginLeft: "53px" }}>
                               {" "}
                               {this.state.user.email}
@@ -950,14 +948,14 @@ class Chat extends React.Component {
                             className="row ml-1"
                             style={{ marginTop: "20px" }}
                           >
-                            <a
+                            <p
                               style={{
                                 color: "grey",
                                 borderBottom: "1px solid grey"
                               }}
                             >
                               Password
-                            </a>{" "}
+                            </p>{" "}
                             <p style={{ marginLeft: "30px" }}> </p>
                             {/* -------- modal -------- */}
                             <div className="edit">
@@ -1186,14 +1184,7 @@ class Chat extends React.Component {
                 </div>
               </div>
               <div id="icon-mess">
-                <form
-                  onSubmit={this.handleSubmit}
-                  style={{
-                    bottom: "0",
-                    position: "fixed",
-                    width: "53%"
-                  }}
-                >
+                <form onSubmit={this.handleSubmit}>
                   <input
                     style={{ borderRadius: "10px" }}
                     class="form-control "
@@ -1203,10 +1194,8 @@ class Chat extends React.Component {
                     onChange={this.handleChangeMessage}
                     required
                   ></input>
-                  <i class="far fa-comment-dots"></i>
-                  <button type="submit" class="btn btn-outline-light">
-                    {" "}
-                    <i id="send" class="fas fa-arrow-circle-right"></i>
+                  <i class="far fa-comment-dots" />
+                  <button type="submit" className='fas fa-arrow-circle-right' id="send">
                   </button>
                 </form>
               </div>

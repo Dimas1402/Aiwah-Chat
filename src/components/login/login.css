@@ -1,180 +1,136 @@
-#container{
-	/*background: rgb(61,53,60);
-    background: linear-gradient(90deg, rgba(61,53,60,1) 2%, rgba(139,0,139,1) 57%, rgba(0,0,0,0.5186449579831933) 97%);*/
+#container {
 	height: 100vh;
 	width: 100%;
 	position: relative;
 	background: linear-gradient(
-			to right,
-			rgba(128, 0, 128, 0.918),
-			rgba(128, 0, 128, 0.87)
-		),
-		url('../../assets/img/bg.jpg');
+		to right,
+		rgba(128, 0, 128, 0.918),
+		rgba(128, 0, 128, 0.87)
+	);
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
 	backface-visibility: hidden;
 	height: 100vh;
-
 }
 
-#keluar{
-	margin: 10px;
-	color:white;
-	font-size: 20px;
-}
-#keluar:hover {
-	color: blue;
-}
-
-#some-element{
-	text-transform: uppercase;
-	display: none;
-}
-.some-div:hover #some-element{
-display: flex;
-position: absolute;
-top: 10px;
-left: 50px;
-color: white;
-}
-
-.icon input[type=text]{
+.icon input[type='text'] {
 	padding-left: 40px;
-
+	border-radius: 10px;
 }
 
-.icon input[type=password]{
+.icon input[type='password'] {
 	padding-left: 40px;
-
-}
-.icon input[type=email]{
-	padding-left: 40px;
+	border-radius: 10px;
 }
 
-.icon input[type=number]{
-	padding-left:40px;
-}
-
-.icon{
+.icon {
 	position: relative;
 }
 
-.icon i{
-position: absolute;
-left:0;
-top:5px;
-padding: 9px 8px;
-color:#aaa;
-/*transition: 3s;*/
+.icon i {
+	position: absolute;
+	left: 0;
+	top: 5px;
+	padding: 9px 8px;
+	color: #aaa;
+	/*transition: 3s;*/
 }
 
-.icon input[type=text]:focus + i{
+.icon input[type='text']:focus + i {
 	color: dodgerBlue;
 }
 
-.icon input[type=password]:focus + i{
+.icon input[type='password']:focus + i {
 	color: dodgerBlue;
 }
-
-.icon input[type=email]:focus + i{
-	color: dodgerBlue;
-}
-
-.icon input[type=number]:focus + i{
-	color: dodgerBlue;
-}
-.login-left{
+.login-left {
 	text-align: center;
-	color:#fff;
+	color: #fff;
 	padding: 30px;
 	position: relative;
 	top: 80px;
 }
 
-.login-left img{
+.login-left img {
 	margin-top: 60px;
 	margin-bottom: 18px;
 	width: 80px;
 	animation: mover 1s infinite alternate;
 }
 
-
-.login-left p{
-	padding:20px 20px 0;
+.login-left p {
+	padding: 20px 20px 0;
 }
 
-.login-left .btn-primary{
+.login-left .btn-primary {
 	border-radius: 1.5rem;
 	border: none;
 	width: 120px;
 	font-weight: 600;
-	color:#555;
+	color: #555;
 	background: #f8f8f8;
-	margin-top:20px;
+	margin-top: 20px;
 	padding: 10px;
 }
 
-#input-2{
-	margin-top:20px;
+#input-2 {
+	margin-top: 20px;
 }
 
-.login-left .btn-primary:hover{
-	background:  #B64EBD;
-	color:white;
+.login-left .btn-primary:hover {
+	background: #b64ebd;
+	color: white;
 }
 
-.login-right{
+.login-right {
 	position: relative;
 	top: 120px;
-	background: #f8f8f8;
-	border-top-left-radius: 10% 50%;
-    border-bottom-left-radius: 10% 50%;
-	border-top-right-radius: 10% 50%;
-    border-bottom-right-radius: 10% 50%;
+	background: #f8f8f8d3;
+	border-radius: 20px;
 	padding: 50px;
-	left:20%;
-	
+	left: 20%;
 }
 
-.login-right h2{
-	border:none;
+.login-right h2 {
+	border: none;
 	text-align: center;
+	letter-spacing: 2px;
 	margin-bottom: 10px;
-	color:#555;
-
+	color: purple;
 }
 
-.login-form{
-	padding: 30px
+.login-form {
+	padding: 30px;
 }
 
-.login-right .btn-primary{
-	float:center;
+.login-right .btn-primary {
+	float: center;
 	border-radius: 1.5rem;
 	border: none;
 	width: 120px;
 	background: #8b008b;
 	font-weight: 600;
 	color: white;
-	margin-top:20px;
+	margin-top: 20px;
 }
 
-.login-right .btn-primary:hover{
-	background: #B64EBD;
+.login-right .btn-primary:hover {
+	background: #b64ebd;
 }
 
-#register-right{
+#register-right {
 	position: relative;
 	bottom: 70px;
-}	
+}
 
-
-
-@keyframes mover{
-	0%{transform: translateY(0);}
-	100%{transform: translateY(-20px);}
-
+@keyframes mover {
+	0% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(-20px);
+	}
 }
 
 #preloader {
@@ -259,12 +215,30 @@ color:#aaa;
 	}
 }
 
-
-@media screen and (max-width: 768px){
-	.login-right{
+@media screen and (max-width: 767px) {
+	.login-right {
 		position: relative;
-/*	margin-right:20%;*/
-	margin-left:-20%; 
+		/*	margin-right:20%;*/
+		margin-left: -20%;
+	}
+}
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+	.header .navbar-brand {
+		margin-left: 0px;
+	}
+	.nav-link {
+		margin-left: 0px;
+	}
+	.login-right {
+		position: relative;
+		top: -280px;
 	}
 
+	.login-left {
+		position: relative;
+		top: 500px;
+	}
+	.container-fluid {
+		height: 100% !important;
+	}
 }

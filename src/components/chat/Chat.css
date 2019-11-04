@@ -1,15 +1,10 @@
-.container-fluid{
-	
-	background: 
-		url("https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-023.jpg");
+.container-fluid {
+	background: violet;
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
 	backface-visibility: hidden;
 	height: 100vh;
-}
-#chat {
-	box-shadow: 0 2px 5px black;
 }
 
 #online {
@@ -41,10 +36,11 @@
 	top: 120px;
 }
 
-.list-group-item {
+.list-group-item p {
 	width: 100;
 	background: none;
 	margin-top: 20px;
+	overflow-y: none !important;
 }
 
 input[type='file']::-webkit-file-upload-button {
@@ -132,7 +128,8 @@ input[type='file']::-webkit-file-upload-button {
 }
 
 #nameUser {
-	font-size: 12px;
+	font-size: 24px !important;
+	letter-spacing: 2px;
 	margin-left: 50px;
 	position: absolute;
 }
@@ -146,6 +143,9 @@ input[type='file']::-webkit-file-upload-button {
 #icon-mess input[type='text'] {
 	padding-left: 40px;
 	padding-right: 60px;
+	position: absolute;
+	bottom: 3.5%;
+	width: 95%;
 }
 
 #icon-mess i {
@@ -157,8 +157,12 @@ input[type='file']::-webkit-file-upload-button {
 }
 
 #send {
+	border: none !important;
+	outline: none !important;
+	box-shadow: none !important;
 	position: absolute;
-	left: 90%;
+	bottom: 5%;
+	right: 5%;
 	color: #6a1b9a !important;
 }
 
@@ -199,7 +203,7 @@ input[type='file']::-webkit-file-upload-button {
 	background: none;
 	border: none;
 	position: absolute;
-	left:160px;
+	left: 160px;
 	color: rgb(51, 50, 50);
 }
 
@@ -283,5 +287,15 @@ input[type='file']::-webkit-file-upload-button {
 	25% {
 		transform: translatey(-15px);
 		background-color: #f8f8f8;
+	}
+}
+
+@media only screen and (min-width: 1440px) {
+	.form-control {
+		width: 65%;
+	}
+	#send {
+		position: absolute;
+		left: 65%;
 	}
 }
