@@ -6,6 +6,7 @@
 	backface-visibility: hidden;
 	height: 100vh;
 }
+
 #online {
 	position: relative;
 	top: 15px;
@@ -35,10 +36,11 @@
 	top: 120px;
 }
 
-.list-group-item {
+.list-group-item p {
 	width: 100;
 	background: none;
 	margin-top: 20px;
+	overflow-y: none !important;
 }
 
 input[type='file']::-webkit-file-upload-button {

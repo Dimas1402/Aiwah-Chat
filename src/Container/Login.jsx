@@ -24,7 +24,7 @@ class Login extends React.Component {
 		// const { usernameErr } = this.state;
 		const { passwordErr } = this.state;
 		if (!this.state.passwordErr) {
-			this.setState({ passwordErr: 'password failed' });
+			this.setState({ passwordErr: 'username or password wrong' });
 		}
 		//   this.setState({ usernameErr: "username failed" });
 		// }
@@ -71,7 +71,6 @@ class Login extends React.Component {
 				this.setState({
 					isLoading: false
 				});
-				alert('gagal login');
 			});
 	};
 
@@ -120,9 +119,10 @@ class Login extends React.Component {
 													value={this.state.name}
 													onChange={this.handleChange}
 													required
+													autoComplete='off'
 												/>
 												<i
-													class='fas fa-user-alt fa-lg fa-fw'
+													className='fas fa-user-alt fa-lg fa-fw'
 													aria-hidden='true'></i>
 											</div>
 											{/* <div style={{ fontSize: 12, color: "red" }}>
@@ -139,26 +139,12 @@ class Login extends React.Component {
 													value={this.state.password}
 													onChange={this.handleChange}
 													required
+													autoComplete='off'
 												/>
 												<i
 													class='fas fa-key fa-lg fa-fw'
 													aria-hidden='true'></i>
 											</div>
-
-											{/*
-                          <div className="icon">
-                          <input 
-                            id="input-2"
-                            className="form-control"
-                            type="password" 
-                            name="password" 
-                            placeholder="password.."
-                            value={this.state.password}
-                            onChange={this.handleChange}
-                            required
-                          />
-                             <i class="fas fa-key fa-lg fa-fw" aria-hidden="true"></i>
-                          </div>*/}
 
 											<div style={{ fontSize: 12, color: 'red' }}>
 												{this.state.passwordErr}

@@ -71,10 +71,10 @@ class Register extends React.Component {
         registered: true
       });
       if (res.data.status === 400) {
-        alert("username atau email telah terpakai");
-      } else {
-        alert("data tersimpan");
-        console.log(res);
+        this.setState({
+          nameErr: "username sudah ada atau terpakai"
+        })
+      } else {;
         return <Redirect to="/login" />;
       }
     });
@@ -125,7 +125,7 @@ class Register extends React.Component {
                   <form onSubmit={this.handleSave}>
                     <div className="icon">
                       <input
-                        id="inputs-1"
+                
                         className="form-control"
                         placeholder="Username"
                         type="text"
@@ -133,10 +133,10 @@ class Register extends React.Component {
                         value={this.state.name}
                         onChange={this.handleChange}
                         required
-                        autocomplete="none"
+                        autoComplete="off"
                       />
                       <i
-                        class="fas fa-user-alt fa-lg fa-fw"
+                        className="fas fa-user-alt fa-lg fa-fw"
                         aria-hidden="true"
                       ></i>
                     </div>
@@ -146,7 +146,7 @@ class Register extends React.Component {
 
                     <div className="icon">
                       <input
-                        id="inputs-1"
+                   
                         className="form-control"
                         placeholder="Email"
                         type="email"
@@ -154,9 +154,9 @@ class Register extends React.Component {
                         value={this.state.email}
                         onChange={this.handleChange}
                         required
-                        autocomplete="none"
+                        autoComplete="off"
                       />
-                      <i class="fas fa-at fa-lg fa-fw"></i>
+                      <i className="fas fa-at fa-lg fa-fw"></i>
                     </div>
                     <div style={{ fontSize: 12, color: "red" }}>
                       {this.state.emailErr}
@@ -164,7 +164,7 @@ class Register extends React.Component {
 
                     <div className="icon">
                       <input
-                        id="inputs-1"
+                  
                         className="form-control"
                         placeholder="Password"
                         type="password"
@@ -173,12 +173,12 @@ class Register extends React.Component {
                         onChange={this.handleChange}
                         required
                       />
-                      <i class="fas fa-key fa-lg fa-fw" aria-hidden="true"></i>
+                      <i className="fas fa-key fa-lg fa-fw" aria-hidden="true"></i>
                     </div>
 
                     <div className="icon">
                       <input
-                        id="inputs-1"
+                  
                         className="form-control"
                         placeholder="Nomor Telepon"
                         type="number"
@@ -186,7 +186,7 @@ class Register extends React.Component {
                         value={this.state.telp}
                         onChange={this.handleChange}
                         required
-                        autocomplete="none"
+                        autoComplete="off"
                       />
                       <i
                         className="fas fa-phone-alt fa-lg fa-lw"
